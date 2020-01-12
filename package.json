@@ -1,0 +1,30 @@
+{
+  "name": "fitbit-raspi",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@fitbit/sdk": "^4.1.0",
+    "@fitbit/sdk-cli": "^1.7.1",
+    "@types/node": "^13.1.6",
+    "fitbit-sdk-types": "^4.3.2"
+  },
+  "fitbit": {
+    "appUUID": "2e42a8bf-298d-495f-915b-470cf7d2c052",
+    "appType": "app",
+    "appDisplayName": "Raspi",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "#ffffff",
+    "requestedPermissions": [],
+    "buildTargets": [
+      "mira"
+    ],
+    "i18n": {},
+    "defaultLanguage": "en-US"
+  },
+  "scripts": {
+    "build": "fitbit-build",
+    "debug": "fitbit"
+  },
+  "dependencies": {}
+}
