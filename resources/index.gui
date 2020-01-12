@@ -1,0 +1,92 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="import" href="/mnt/sysassets/widgets_common.gui" />
+    <!-- Additional Imports -->
+    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.gui" />
+    <link rel="import" href="/mnt/sysassets/widgets/panoramaview_widget.gui" />
+    <link rel="import" href="/mnt/sysassets/widgets/pagination_dots.gui" />
+    <link rel="import" href="/mnt/sysassets/widgets/tile_list_widget.gui" />
+
+    <!-- Template Symbol for the tile item -->
+    <symbol id="my-tile-item" href="#tile-list-item" focusable="false"
+            pointer-events="none" system-events="all">
+      <text id="text" />
+      <rect id="touch-me" pointer-events="all" x="0" y="0" width="100%"
+            height="100%-2" opacity="0" />
+    </symbol>
+
+    <!-- Template Symbol for the header -->
+    <symbol id="view-header" href="#scrollview-header">
+      <rect fill="inherit" x="0" y="0" width="100%" height="100%"/>
+      <text id="text" x="5" y="50%+10" fill="black" font-size="30"
+        font-weight="bold" />
+    </symbol>
+  </defs>
+  <rect id="background" />
+  <use id="container" href="#panoramaview">
+    <use id="homePanoramaItem" href="#panoramaview-item">
+      <use id="homeTileList" y="40" height="80%" href="#tile-list">
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 💡 Lights" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 🌡 Thermostat" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" ☀️ Solar" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 🎵 Music" />
+        </use>
+      </use>
+      <use href="#view-header" height="10%" fill="#058ED9">
+        <set href="#text" attributeName="text-buffer" to="Home" />
+      </use>
+    </use>
+
+    <use id="carPanoramaItem" href="#panoramaview-item">
+      <use id="carTileList" y="40" height="80%" href="#tile-list">
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" ⚡️ Charge" />
+        </use>
+      </use>
+      <use href="#view-header" height="10%" fill="#A39A92">
+        <set href="#text" attributeName="text-buffer" to="Car" />
+      </use>
+    </use>
+
+    <use id="workPanoramaItem" href="#panoramaview-item">
+      <use id="workTileList" y="40" height="80%" href="#tile-list">
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" ✉️ Announcements" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 🖥 Servers" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 😃 Team" />
+        </use>
+      </use>
+      <use href="#view-header" height="10%" fill="#C42021">
+        <set href="#text" attributeName="text-buffer" to="Work" />
+      </use>
+    </use>
+
+    <!-- color palette:  
+    <rect x="46"  y="44" fill="#483d3f" width="180" height="631"/>
+    <rect x="238" y="44" fill="#058ed9" width="180" height="631"/>
+    <rect x="430" y="44" fill="#f4ebd9" width="180" height="631"/>
+    <rect x="622" y="44" fill="#c42021" width="180" height="631"/>
+    <rect x="814" y="44" fill="#0b132b" width="180" height="631"/>
+    -->
+
+    <!-- Have enough pagination dots for your slides (extras are hidden) -->
+    <use id="pagination-dots" href="#pagination-widget" y="10">
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-dot" />
+      <use href="#pagination-highlight-dot" />
+    </use>
+  </use>
+</svg>

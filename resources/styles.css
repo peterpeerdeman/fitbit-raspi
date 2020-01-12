@@ -1,0 +1,34 @@
+svg {
+}
+
+#background {
+  width: 100%;
+  height: 100%;
+}
+
+.large-value {
+  font-size: 120;
+  fill: #F80070;
+}
+
+.tile-list-header {
+  height: 50;
+  fill: "white";
+  align-self: center;
+}
+
+.tile-list-item {
+  height: 88;
+}
+
+.tile-list-item text {
+  fill: "white";
+}
+
+.tile-divider-bottom {
+  x: 0;
+  y: 100%-2;
+  width: 100%;
+  height: 2;
+  fill: #A0A0A0;
+}
