@@ -6,8 +6,8 @@ import { Views } from "./views";
  */
 const views = new Views(
   [
-    //["maingallery", () => import("./views/maingallery")],
-    //["lights", () => import("./views/lights")],
+    ["maingallery", () => import("./views/maingallery")],
+    ["lights", () => import("./views/lights")],
     ["view-1", () => import("./views/view-1")],
     ["view-2", () => import("./views/view-2")]
   ],
@@ -16,5 +16,5 @@ const views = new Views(
 
 // Select the first view (view-1) after 1 second
 setTimeout(() => {
-  views.navigate("view-1");
+  views.navigate("maingallery");
 }, 1000);
