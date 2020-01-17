@@ -1,25 +1,20 @@
-import clock, { TickEvent } from 'clock';
-import { HeartRateSensor } from "heart-rate";
+import { Views } from "./views";
 
-let document = require("document");
+/**
+ * Definition for each view in the resources/views folder, and the associated
+ * JavaScript module is lazily loaded alongside its view.
+ */
+const views = new Views(
+  [
+    //["maingallery", () => import("./views/maingallery")],
+    //["lights", () => import("./views/lights")],
+    ["view-1", () => import("./views/view-1")],
+    ["view-2", () => import("./views/view-2")]
+  ],
+  "./resources/views/"
+);
 
-let list = document.getElementById("homeTileList");
-let items = list.getElementsByClassName("tile-list-item");
-
-items.forEach((element, index) => {
-  let touch: RectElement = element.getElementById("touch-me");
-  touch.onclick = (evt) => {
-    console.log(`touched: ${index}`);
-  }
-});
-
-
-
-let hrLabel: TextElement = document.getElementById("hrm");
-
-function updateDisplay() {
-    const date = new Date();
-    hrLabel.text = String(date.getSeconds());
-}
-
-// setInterval(updateDisplay, 1000);
+// Select the first view (view-1) after 1 second
+setTimeout(() => {
+  views.navigate("view-1");
+}, 1000);
