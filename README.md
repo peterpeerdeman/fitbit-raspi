@@ -22,10 +22,10 @@ bi
 ## roadmap
 
 - [x] create generic gui pattern
-- [ ] create gui for home menu
-- [ ] create gui for home details
-- [ ] create companion app communications layer
-- [ ] integrate home menu
+- [x] create gui for home menu
+- [x] create gui for home details
+- [x] create companion app communications layer
+- [ ] fully integrate home menu
 - [ ] create settings app for authentication
 - [ ] other functionalities
 - [ ] update icons / artwork
