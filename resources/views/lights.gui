@@ -4,15 +4,43 @@
      Things to note:
       - display='none': Tile list items need to be hidden by default!
     -->
-  <symbol id='light-item' href='#tile-list-item' height='80' display='none'>
+  <symbol id='light-item' href='#tile-list-item' height='120' display='none'>
     <!-- We put this in a transform so that way the elements inside
        can be animated by the List container when shown / hidden. -->
     <g id='transform'>
-      <rect id='bg' height='100%' width='100%' />
-      <text id='title-text' fill='white' y='35' x='5'></text>
+      <!-- <rect id='bg' height='100%' width='100%' /> -->
+      <use id="container" href="#panoramaview">
+        <use id="datapage" href="#panoramaview-item">
+    
+          <use id="mixedtext" href="#mixed-text-left-mid" height="100%" width="90%" class="card">
+            <set href="#header/text" attributeName="text-buffer" to="-"/>
+            <set href="#copy/text" attributeName="text-buffer" to="-"/>
+            <set href="#header/text" attributeName="text-length" to="128" />
+            <set href="#copy/text" attributeName="text-length" to="128" />
+            <set href="#copy/text" attributeName="fill" to="lightgrey" />
+          </use>
+        </use>
+        <use id="actionpage" href="#panoramaview-item">
+          <svg y="50%-35" height="70">
+            <use id="btn-off" href="#square-button" fill="fb-red" width="50%">
+              <set href="#text"  attributeName="text-buffer" to="off" />
+            </use>
+            <use id="btn-on" href="#square-button" x="50%" fill="fb-green" width="50%">
+              <set href="#text"  attributeName="text-buffer" to="on" />
+            </use>
+          </svg>
+        </use>
+
+        <!-- Have enough pagination dots for your slides (extras are hidden) -->
+        <use id="pagination-dots" href="#pagination-widget" y="100%-17">
+          <use href="#pagination-dot" />
+          <use href="#pagination-dot" />
+          <use href="#pagination-highlight-dot" />
+        </use>
+      </use>
 
       <!-- Visual separator between tiles -->
-      <rect id='tile-divider-bottom' class='list-separator' />
+      <rect id='tile-divider-bottom' class='card--list-separator' />
     </g>
   </symbol>
   

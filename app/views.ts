@@ -4,6 +4,7 @@
  * A basic module to simplify navigation within multi-view applications.
  */
 import document from "document";
+import { MessageBroker } from '../common/message-broker';
 
 /**
  * Initialize the views module with views from a specific folder.
@@ -13,16 +14,17 @@ import document from "document";
  */
 export class Views {
     
-
+    broker: MessageBroker;
     views: Array<[String, Function]>;
     viewsPrefix: string;
     viewsSuffix: string;
     viewSelected: any;
 
-    constructor(_views: Array<[String, Function]>, _prefix: string) {
+    constructor(_views: Array<[String, Function]>, _prefix: string, _broker: MessageBroker) {
         this.views = _views;
         this.viewsPrefix = _prefix;
         this.viewsSuffix = ".gui";
+        this.broker = _broker;
     }
 
     /**
@@ -31,7 +33,6 @@ export class Views {
      * @param {number} _index The array position of the view to be selected.
      */
     select(_index: number) {
-        console.log(this.views);
         const [viewGUI, viewJSLoader] = this.views[_index];
         this.viewSelected = viewGUI;
         viewJSLoader()

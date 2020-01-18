@@ -1,20 +1,32 @@
 import document from "document";
+import { Views } from '../views';
+import * as Commands from "../../common/commands";
 
-let views;
+let views: Views;
+
+/**
+ * Sample button click with navigation.
+ */
+function clickHandler(_evt: Event) {
+  console.log("button clicked!");
+  const target = _evt.target as Element
+  target.parent
+  for (const value in _evt) {
+    console.log(value);
+
+  }
+  // turn lights on
+  views.broker.sendCommand(Commands.LIGHTS_GROUP_ON);
+
+  // TODO refresh the page
+}
 
 /**
  * When this view is mounted, setup elements and events.
  */
-function onMount() {
-  console.log('onmount');
-  var VTList:any = document.getElementById('my-tile-list');
+function onMount(state: Raspi.State) {
+  var VTList: VirtualTileList<VirtualTileListItemInfo> = document.getElementById('my-tile-list') as VirtualTileList<VirtualTileListItemInfo>;
 
-  var data = [
-    'dit',
-    'is',
-    'dynamic'
-  ];
-  
   /****************************************************************************************************
   * The delegate object is what allows for us to customize tiles in the virtual list.
   * - .getTileInfo should return an object which contains a "type" field, specifying the id
@@ -25,32 +37,48 @@ function onMount() {
   * for the pool specified in the type field.
   ***************************************************************************************************/
   VTList.delegate = {
-    getTileInfo : function(index) {
-      console.log('getTileInfo');
-      return { type: "lights-pool", value: "Tile Content " + index, index: index };
+    getTileInfo: (index: number) => {
+      return {
+        type: "lights-pool",
+        index: index
+      };
     },
-    configureTile : function(tile, info) {
-      console.log(tile);
-      console.log(info);
-      tile.getElementById('title-text').text = data[info.index];
+    configureTile: function (tile, info) {
+      const mixedtext: Element = tile.getElementById('mixedtext') as Element;
+      const mixedtextBody: Element = mixedtext.getElementById('copy') as Element;
+      mixedtext.text = state.lights.groupsData[info.index].title;
+      mixedtextBody.text = state.lights.groupsData[info.index].subtitle;
+
+      const btnOff: Element = tile.getElementById('btn-off') as Element;
+      btnOff.onclick = function (evt) {
+        views.broker.sendCommand(Commands.LIGHTS_GROUP_OFF, state.lights.groupsData[info.index].groupId);
+      };
+
+      const btnOn: Element = tile.getElementById('btn-on') as Element;
+      btnOn.onclick = function (evt) {
+        views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index].groupId);
+      };
     },
   };
-  
+
   // KNOWN ISSUE: It is currently required that VTList.length be set AFTER VTList.delegate
-  VTList.length = data.length;
+  VTList.length = state.lights.groupsData.length;
 }
 
-/**
- * Sample button click with navigation.
- */
-function clickHandler(_evt) {
-  console.log("view-1 Button Clicked!");
-  /* Navigate to another screen */
-  views.navigate("view-2");
+function onBackButton(evt) {
+  if (evt.key === "back") {
+    evt.preventDefault();
+    views.navigate("maingallery");
+  }
 }
 
-export function init(_views) {
-  views = _views;
+export function init(_views: Views) {
   console.log("lights init()");
-  onMount();
+  views = _views;
+  document.addEventListener("keypress", onBackButton);
+  views.broker.registerHandler(Commands.UPDATE_UI, (state: Raspi.State) => {
+    console.log('received data from broker');
+    onMount(state);
+  })
+  views.broker.sendCommand(Commands.LIGHTS_UPDATE_GROUPLIST);
 }
