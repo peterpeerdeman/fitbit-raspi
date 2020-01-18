@@ -20,7 +20,11 @@ const views = new Views(
   broker
 );
 
+// Start the spinner
+let spinner: Element = document.getElementById("spinner") as Element;
+spinner.state = "enabled";
+
 // Select the first view (view-1) after 1 second
 setTimeout(() => {
   views.navigate("maingallery");
-}, 1000);
+}, 500);
