@@ -1,4 +1,9 @@
+import document from "document";
 import { Views } from "./views";
+import { MessageBroker } from "../common/message-broker";
+import * as Commands from "../common/commands";
+
+const broker = new MessageBroker('[FitBit]');
 
 /**
  * Definition for each view in the resources/views folder, and the associated
@@ -11,7 +16,8 @@ const views = new Views(
     ["view-1", () => import("./views/view-1")],
     ["view-2", () => import("./views/view-2")]
   ],
-  "./resources/views/"
+  "./resources/views/",
+  broker
 );
 
 // Select the first view (view-1) after 1 second
