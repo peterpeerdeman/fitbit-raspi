@@ -9,6 +9,8 @@
 	"include": [
 		"**/*.ts",
 		"**/*.js",
+		"../common/**/*.ts",
+		"../common/**/*.tsx",
 		"../node_modules/fitbit-sdk-types/types/companion"
 	]
 }
