@@ -5,6 +5,14 @@ text {
   text-length: 32
 }
 
+.defaultText {
+  font-size: 32;
+  font-family: System-Regular;
+  font-weight: regular;
+  text-length: 32;
+}
+.my-item { font-size: 120; font-family: Seville-Book; fill: white; x: 5; y: 117; }
+
 /* Generic IDS*/
 #spinner { x: 50%-25; y: 50%-25; width: 50; height: 50; fill: fb-white; }
 #background {

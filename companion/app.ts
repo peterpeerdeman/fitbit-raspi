@@ -12,6 +12,9 @@ export class App {
         page: 'loading',
         lights: {
             groupsData: []
+        },
+        thermostat: {
+            zonesData: []
         }
     };
 

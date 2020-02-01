@@ -19,6 +19,9 @@ function onMount() {
           case 0: 
             views.navigate('lights');
             break;
+          case 1: 
+            views.navigate('thermostat');
+            break;
           default:
             break;
         }

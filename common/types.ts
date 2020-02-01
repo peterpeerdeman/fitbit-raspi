@@ -7,10 +7,19 @@ declare namespace Raspi {
         _id: number
     }
 
+    interface ZoneCard {
+        title: string,
+        subtitle: string,
+        _id: number
+    }
+
     interface State {
         page: string,
         lights: {
             groupsData: Array<LightCard>
+        },
+        thermostat: {
+            zonesData: Array<ZoneCard>
         }
     }
 }
