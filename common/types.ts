@@ -4,7 +4,7 @@ declare namespace Raspi {
     interface LightCard {
         title: string,
         subtitle: string,
-        groupId: number
+        _id: number
     }
 
     interface State {

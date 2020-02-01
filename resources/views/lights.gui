@@ -1,4 +1,7 @@
 <svg>
+  <svg viewport-fill="black">
+    <use id="spinner" href="#spinner" />
+  </svg>
   <!-- Create a tile-list-item that can be re-used, with a simple
      lightsed background.
      Things to note:

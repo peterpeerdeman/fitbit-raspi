@@ -1,39 +1,43 @@
 import * as Commands from "../../common/commands";
 import { App } from '../app';
+import { LightsApi } from '../apis/LightsApi'
 
 export class Lights {
-    app: App;
+  app: App;
+  api: LightsApi
 
   constructor(app: App) {
     this.app = app;
+    this.api = new LightsApi();
   }
-  
-  initialize() {
-    this.app.broker.registerHandler(Commands.LIGHTS_UPDATE_GROUPLIST, () => {
-        console.log('companion command UPDATE_LIGHTS received');
-        this.app.resetState();
-        this.app.state.page = 'lights';
-        this.app.state.lights.groupsData = [{
-            'title': 'Blabla 1',
-            'subtitle': 'subblaas dfas',
-            'groupId': 123
-        },{
-            'title': 'Blabla 2',
-            'subtitle': 'subblabla2',
-            'groupId': 3333
-        },{
-            'title': 'Blabla 3',
-            'subtitle': 'subblabla3',
-            'groupId': 44
-        },{
-            'title': 'Blabla 4',
-            'subtitle': 'subblablaasdf sadf sf dsaf sadf saf asf adsf 4',
-            'groupId': 555
-        }]
 
-        this.app.updateUi();
+  initialize() {
+    this.app.broker.registerHandler(Commands.LIGHTS_UPDATE_GROUPLIST, async () => {
+      console.log('companion command UPDATE_LIGHTS received');
+      this.app.resetState();
+      this.app.state.page = 'lights';
+      const groups = await this.api.getGroups();
+      this.app.state.lights.groupsData = groups.map(function (group) {
+        return {
+          title: group._rawData.name,
+          subtitle: 'all: ' + group._rawData.state.all_on + ', any: ' + group._rawData.state.any_on,
+          _id: group._id,
+        };
+      });
+
+      this.app.updateUi();
     });
-    
+
+    this.app.broker.registerHandler(Commands.LIGHTS_GROUP_ON, async (_id) => {
+      this.api.lightsOn(_id);      
+    });
+
+    this.app.broker.registerHandler(Commands.LIGHTS_GROUP_OFF, async (_id) => {
+      this.api.lightsOff(_id);      
+    });
+
+
+
     console.log(`[Companion] Initialized lights component`);
   }
 }

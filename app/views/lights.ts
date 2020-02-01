@@ -51,12 +51,12 @@ function onMount(state: Raspi.State) {
 
       const btnOff: Element = tile.getElementById('btn-off') as Element;
       btnOff.onclick = function (evt) {
-        views.broker.sendCommand(Commands.LIGHTS_GROUP_OFF, state.lights.groupsData[info.index].groupId);
+        views.broker.sendCommand(Commands.LIGHTS_GROUP_OFF, state.lights.groupsData[info.index]._id);
       };
 
       const btnOn: Element = tile.getElementById('btn-on') as Element;
       btnOn.onclick = function (evt) {
-        views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index].groupId);
+        views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index]._id);
       };
     },
   };
@@ -74,10 +74,16 @@ function onBackButton(evt) {
 
 export function init(_views: Views) {
   console.log("lights init()");
+
   views = _views;
+
+  const spinner: Element = document.getElementById('spinner') as Element;
+  spinner.state = "enabled";
   document.addEventListener("keypress", onBackButton);
   views.broker.registerHandler(Commands.UPDATE_UI, (state: Raspi.State) => {
     console.log('received data from broker');
+    const spinner: Element = document.getElementById('spinner') as Element;
+    spinner.state = "disabled";
     onMount(state);
   })
   views.broker.sendCommand(Commands.LIGHTS_UPDATE_GROUPLIST);
