@@ -10,7 +10,7 @@ declare namespace Raspi {
     interface ZoneCard {
         title: string,
         subtitle: string,
-        _id: number
+        zoneId: number
     }
 
     interface State {

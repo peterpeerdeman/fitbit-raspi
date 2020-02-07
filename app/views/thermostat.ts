@@ -42,15 +42,57 @@ function onMount(state: Raspi.State) {
       mixedtext.text = state.thermostat.zonesData[info.index].title;
       mixedtextBody.text = state.thermostat.zonesData[info.index].subtitle;
 
-
       const touchArea: Element = tile.getElementById('touch-me') as Element;
       
       touchArea.onclick = function (evt) {
-          console.log('row clicked', evt);
-          const temperatureTumbler: any = document.getElementById('temperature-tumbler');
-          temperatureTumbler.style.display = "inline";
-        //views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index]._id);
+        const showmore: any = tile.getElementById('show-more') as Element;
+        if(showmore.style.display == 'none') {
+          tile.height = 260;
+          showmore.style.display = 'inline';
+        } else {
+          tile.height = 120;
+          showmore.style.display = 'none';
+        }
+        // views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index]._id);
       };
+
+      // TODO pretty loopcode that doesnt work :(
+      /*const tempbuttons: [Element] = tile.getElementsByClassName('temp-button') as [Element];
+      console.log(tempbuttons);
+      tempbuttons.forEach(function(button) {
+          button.onclick = function(evt) {
+            views.broker.sendCommand(Commands.THERMOSTAT_SET_TEMPERATURE, state.thermostat.zonesData[info.index]._id, button.value);
+            views.broker.sendCommand(Commands.THERMOSTAT_UPDATE_ZONESLIST);
+          }
+      });
+      */
+
+      const temp15: Element = tile.getElementById("temp15") as Element;
+      temp15.onactivate = function(evt) {
+        console.log(JSON.stringify(state.thermostat));
+        views.broker.sendCommand(Commands.THERMOSTAT_SET_TEMPERATURE, state.thermostat.zonesData[info.index].zoneId, 15);
+        views.broker.sendCommand(Commands.THERMOSTAT_UPDATE_ZONESLIST);
+      }
+
+      const temp20: Element = tile.getElementById("temp20") as Element;
+      temp20.onactivate = function(evt) {
+        console.log(JSON.stringify(state.thermostat));
+        views.broker.sendCommand(Commands.THERMOSTAT_SET_TEMPERATURE, state.thermostat.zonesData[info.index].zoneId, 20);
+        views.broker.sendCommand(Commands.THERMOSTAT_UPDATE_ZONESLIST);
+      }
+
+      const temp21: Element = tile.getElementById("temp21") as Element;
+      temp21.onactivate = function(evt) {
+        console.log(JSON.stringify(state.thermostat));
+        views.broker.sendCommand(Commands.THERMOSTAT_SET_TEMPERATURE, state.thermostat.zonesData[info.index].zoneId, 21);
+        views.broker.sendCommand(Commands.THERMOSTAT_UPDATE_ZONESLIST);
+      }
+
+      // const clearbutton: Element = tile.getElementById('clear-button') as Element;
+      // clearbutton.onclick = function(evt) {
+      //   views.broker.sendCommand(Commands.THERMOSTAT_CLEAR_TEMPERATURE, state.thermostat.zonesData[info.index]._id);
+      // }
+
     },
   };
 

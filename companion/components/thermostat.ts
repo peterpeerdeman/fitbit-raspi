@@ -21,7 +21,7 @@ export class Thermostat {
         return {
           title: zone.name,
           subtitle: `current: ${zone.current_temperature}\nwanted: ${zone.wanted_temperature}\nhumid: ${zone.humidity}`,
-          _id: zone._id,
+          zoneId: zone.id,
         };
       });
 

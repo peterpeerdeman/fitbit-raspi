@@ -4,20 +4,39 @@
   </svg>
 
   <symbol id='list-item' href='#tile-list-item' height='120' display='none'>
+    <animate attributeName="height" begin="enable"
+        from="400" to="200" dur="2" final="restore" />
     <!-- We put this in a transform so that way the elements inside
        can be animated by the List container when shown / hidden. -->
     <g id='transform'>
         <!-- <rect id='bg' height='100%' width='100%' /> -->
         <rect id="touch-me" pointer-events="all" x="0" y="0" width="100%"
-                height="100%-2" opacity="0" />
+              height="100%-2" opacity="0" />
         
-        <use id="mixedtext" href="#mixed-text-left-mid" height="100%" width="90%" class="card">
+        <use id="mixedtext" href="#mixed-text-left-top" height="120" width="95%" class="card">
             <set href="#header/text" attributeName="text-buffer" to="-"/>
             <set href="#copy/text" attributeName="text-buffer" to="-"/>
             <set href="#header/text" attributeName="text-length" to="128" />
             <set href="#copy/text" attributeName="text-length" to="128" />
             <set href="#copy/text" attributeName="fill" to="lightgrey" />
         </use>
+
+        <!-- show more-->
+        <svg display="none" y="$+2" id="show-more">
+        <!-- <svg height="100%" y="$"  id="show-more"> -->
+          <use id="temp15" href="#square-button" fill="fb-red" width="33%">
+            <set href="#text" attributeName="text-buffer" to="15‎°" />
+          </use>
+          <use id="temp20" href="#square-button" x="33%" width="33%"fill="fb-red">
+            <set href="#text" attributeName="text-buffer" to="20‎°" />
+          </use>
+          <use id="temp21" href="#square-button" x="66%" width="33%" fill="fb-red">
+            <set href="#text" attributeName="text-buffer" to="21°" />
+          </use>
+          <use id="tempclear" href="#square-button" y="$" fill="fb-green">
+            <set href="#text" attributeName="text-buffer" to="clear temp setting" />
+          </use>
+        </svg>
 
         <!-- Visual separator between tiles -->
         <rect id='tile-divider-bottom' class='card--list-separator' />
@@ -77,39 +96,4 @@
       </use>
 
     </use>
-
-    <svg>
-        <use id="temperature-tumbler" href="#tumblerview" x="0" y="49" display='none'>
-            <rect width="174" height="250" x="0" y="0" />
-            <use id="item0" href="#tumbler-item">
-            <text id="my-value" class="my-item">15</text>
-            </use>
-            <use id="item1" href="#tumbler-item">
-            <text id="my-value" class="my-item">16</text>
-            </use>
-            <use id="item2" href="#tumbler-item">
-            <text id="my-value" class="my-item">17</text>
-            </use>
-            <use id="item3" href="#tumbler-item">
-            <text id="my-value" class="my-item">18</text>
-            </use>
-            <use id="item4" href="#tumbler-item">
-            <text id="my-value" class="my-item">19</text>
-            </use>
-            <use id="item5" href="#tumbler-item">
-            <text id="my-value" class="my-item">20</text>
-            </use>
-            <use id="item6" href="#tumbler-item">
-            <text id="my-value" class="my-item">21</text>
-            </use>
-            <use id="item7" href="#tumbler-item">
-            <text id="my-value" class="my-item">22</text>
-            </use>
-            <use id="item8" href="#tumbler-item">
-            <text id="my-value" class="my-item">23</text>
-            </use>
-            
-        </use>
-        
-    </svg>
   </svg>
