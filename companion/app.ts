@@ -15,6 +15,9 @@ export class App {
         },
         thermostat: {
             zonesData: []
+        },
+        solar: {
+            outputs: []
         }
     };
 

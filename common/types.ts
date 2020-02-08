@@ -13,6 +13,11 @@ declare namespace Raspi {
         zoneId: number
     }
 
+    interface DefaultCard {
+        title: string,
+        subtitle: string
+    }
+
     interface State {
         page: string,
         lights: {
@@ -20,6 +25,9 @@ declare namespace Raspi {
         },
         thermostat: {
             zonesData: Array<ZoneCard>
+        },
+        solar: {
+            outputs: Array<DefaultCard>
         }
     }
 }

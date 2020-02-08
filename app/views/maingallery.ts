@@ -22,6 +22,9 @@ function onMount() {
           case 1: 
             views.navigate('thermostat');
             break;
+          case 2: 
+            views.navigate('solar');
+            break;
           default:
             break;
         }
