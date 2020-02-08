@@ -15,8 +15,7 @@ const views = new Views(
     ["lights", () => import("./views/lights")],
     ["thermostat", () => import("./views/thermostat")],
     ["solar", () => import("./views/solar")],
-    ["view-1", () => import("./views/view-1")],
-    ["view-2", () => import("./views/view-2")]
+    ["car", () => import("./views/car")],
   ],
   "./resources/views/",
   broker

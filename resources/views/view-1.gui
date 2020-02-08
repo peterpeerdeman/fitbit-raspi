@@ -1,6 +1,0 @@
-<svg>
-  <text class="title">This is view-1.</text>
-  <use id="v1-button" href="#push-button" class="btn">
-    <set href="#text" attributeName="text-buffer" to="GO view-2" />
-  </use>
-</svg>
