@@ -28,6 +28,9 @@ declare namespace Raspi {
         },
         solar: {
             outputs: Array<DefaultCard>
+        },
+        car: {
+            charge: DefaultCard
         }
     }
 }

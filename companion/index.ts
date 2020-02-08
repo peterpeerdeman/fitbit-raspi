@@ -5,6 +5,7 @@ import { App } from './app';
 import { Lights } from "./components/lights";
 import { Thermostat } from "./components/thermostat";
 import { Solar } from "./components/solar";
+import { Car } from "./components/car";
 
 const broker = new MessageBroker('[Companion]');
 const app = new App(broker);
@@ -12,6 +13,7 @@ const app = new App(broker);
 const lights = new Lights(app);
 const thermostat = new Thermostat(app);
 const solar = new Solar(app);
+const car = new Car(app);
 
 // A user changes settings
 settingsStorage.onchange = async (evt) => {
@@ -27,6 +29,7 @@ const initialize = async () => {
 lights.initialize();
 thermostat.initialize();
 solar.initialize();
+car.initialize();
 
 //update ui if necessary
 // app.updateUi();

@@ -1,0 +1,14 @@
+<svg>
+  <svg viewport-fill="black">
+    <use id="spinner" href="#spinner" />
+  </svg>
+
+<use id="mixedtext" href="#mixed-text-left-top" height="120" width="95%" class="card">
+    <set href="#header/text" attributeName="text-buffer" to="-"/>
+    <set href="#copy/text" attributeName="text-buffer" to="-"/>
+    <set href="#header/text" attributeName="text-length" to="128" />
+    <set href="#copy/text" attributeName="text-length" to="128" />
+    <set href="#copy/text" attributeName="fill" to="lightgrey" />
+</use>
+
+  </svg>

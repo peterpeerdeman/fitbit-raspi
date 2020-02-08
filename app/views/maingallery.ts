@@ -30,6 +30,23 @@ function onMount() {
         }
       }
     });
+
+    let carList:any = document.getElementById("carTileList");
+    let carListItems = carList.getElementsByClassName("tile-list-item");
+    
+    carListItems.forEach((element, index) => {
+      let touch: RectElement = element.getElementById("touch-me");
+      touch.onclick = (evt) => {
+        console.log(`touched: ${index}`);
+        switch(index) {
+          case 0: 
+            views.navigate('car');
+            break;
+          default:
+            break;
+        }
+      }
+    });
 }
 
 export function init(_views) {

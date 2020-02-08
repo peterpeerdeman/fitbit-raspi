@@ -18,6 +18,12 @@ export class App {
         },
         solar: {
             outputs: []
+        },
+        car: {
+            charge: {
+                title: '',
+                subtitle: ''
+            }
         }
     };
 
