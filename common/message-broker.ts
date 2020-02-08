@@ -99,7 +99,7 @@ export class MessageBroker {
       messaging.peerSocket.send(data);
     } else {
       console.log(`${this.name} Could not set data: ${messaging.peerSocket.readyState}`);
-      //this.pushToQueue(data);
+      this.pushToQueue(data);
     }
   }
 
