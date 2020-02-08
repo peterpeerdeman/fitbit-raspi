@@ -49,14 +49,29 @@ function onMount(state: Raspi.State) {
       mixedtext.text = state.lights.groupsData[info.index].title;
       mixedtextBody.text = state.lights.groupsData[info.index].subtitle;
 
+      const touchArea: Element = tile.getElementById('touch-me') as Element;
+      touchArea.onclick = function (evt) {
+        const showmore: any = tile.getElementById('show-more') as Element;
+        if(showmore.style.display == 'none') {
+          tile.height = 150;
+          showmore.style.display = 'inline';
+        } else {
+          tile.height = 100;
+          showmore.style.display = 'none';
+        }
+        // views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index]._id);
+      };
+
       const btnOff: Element = tile.getElementById('btn-off') as Element;
       btnOff.onclick = function (evt) {
         views.broker.sendCommand(Commands.LIGHTS_GROUP_OFF, state.lights.groupsData[info.index]._id);
+        views.broker.sendCommand(Commands.LIGHTS_UPDATE_GROUPLIST);
       };
 
       const btnOn: Element = tile.getElementById('btn-on') as Element;
       btnOn.onclick = function (evt) {
         views.broker.sendCommand(Commands.LIGHTS_GROUP_ON, state.lights.groupsData[info.index]._id);
+        views.broker.sendCommand(Commands.LIGHTS_UPDATE_GROUPLIST);
       };
     },
   };

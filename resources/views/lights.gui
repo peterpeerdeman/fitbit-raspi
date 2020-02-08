@@ -7,40 +7,33 @@
      Things to note:
       - display='none': Tile list items need to be hidden by default!
     -->
-  <symbol id='light-item' href='#tile-list-item' height='120' display='none'>
+  <symbol id='list-item' href='#tile-list-item' height='100' display='none'>
     <!-- We put this in a transform so that way the elements inside
        can be animated by the List container when shown / hidden. -->
     <g id='transform'>
       <!-- <rect id='bg' height='100%' width='100%' /> -->
-      <use id="container" href="#panoramaview">
-        <use id="datapage" href="#panoramaview-item">
-    
-          <use id="mixedtext" href="#mixed-text-left-mid" height="100%" width="90%" class="card">
-            <set href="#header/text" attributeName="text-buffer" to="-"/>
-            <set href="#copy/text" attributeName="text-buffer" to="-"/>
-            <set href="#header/text" attributeName="text-length" to="128" />
-            <set href="#copy/text" attributeName="text-length" to="128" />
-            <set href="#copy/text" attributeName="fill" to="lightgrey" />
-          </use>
-        </use>
-        <use id="actionpage" href="#panoramaview-item">
-          <svg y="50%-35" height="70">
-            <use id="btn-off" href="#square-button" fill="fb-red" width="50%">
-              <set href="#text"  attributeName="text-buffer" to="off" />
-            </use>
-            <use id="btn-on" href="#square-button" x="50%" fill="fb-green" width="50%">
-              <set href="#text"  attributeName="text-buffer" to="on" />
-            </use>
-          </svg>
-        </use>
-
-        <!-- Have enough pagination dots for your slides (extras are hidden) -->
-        <use id="pagination-dots" href="#pagination-widget" y="100%-17">
-          <use href="#pagination-dot" />
-          <use href="#pagination-dot" />
-          <use href="#pagination-highlight-dot" />
-        </use>
+      <rect id="touch-me" pointer-events="all" x="0" y="0" width="100%"
+            height="100%-2" opacity="0" />
+     
+      <use id="mixedtext" href="#mixed-text-left-top" height="80" width="95%" class="card">
+        <set href="#header/text" attributeName="text-buffer" to="-"/>
+        <set href="#copy/text" attributeName="text-buffer" to="-"/>
+        <set href="#header/text" attributeName="text-length" to="128" />
+        <set href="#copy/text" attributeName="text-length" to="128" />
+        <set href="#copy/text" attributeName="fill" to="lightgrey" />
       </use>
+
+      <!-- show more-->
+      <svg display="none" y="$+2" id="show-more">
+        <svg>
+          <use id="btn-off" href="#square-button" fill="fb-red" width="50%">
+            <set href="#text"  attributeName="text-buffer" to="off" />
+          </use>
+          <use id="btn-on" href="#square-button" x="50%" fill="fb-green" width="50%">
+            <set href="#text"  attributeName="text-buffer" to="on" />
+          </use>
+        </svg>
+      </svg>
 
       <!-- Visual separator between tiles -->
       <rect id='tile-divider-bottom' class='card--list-separator' />
@@ -71,19 +64,19 @@
          In this case, we can fit a maximum of 300/50 = 6 on screen
          so we will keep 10 tiles in each pool. -->
       <use id='lights-pool' href='#tile-list-pool'>
-        <use id='lights-pool[1]' href='#light-item' />
-        <use id='lights-pool[2]' href='#light-item' />
-        <use id='lights-pool[3]' href='#light-item' />
-        <use id='lights-pool[4]' href='#light-item' />
-        <use id='lights-pool[5]' href='#light-item' />
-        <use id='lights-pool[6]' href='#light-item' />
-        <use id='lights-pool[7]' href='#light-item' />
-        <use id='lights-pool[8]' href='#light-item' />
-        <use id='lights-pool[9]' href='#light-item' />
-        <use id='lights-pool[10]' href='#light-item' />
-        <use id='lights-pool[11]' href='#light-item' />
-        <use id='lights-pool[12]' href='#light-item' />
-        <use id='lights-pool[13]' href='#light-item' />
+        <use id='lights-pool[1]' href='#list-item' />
+        <use id='lights-pool[2]' href='#list-item' />
+        <use id='lights-pool[3]' href='#list-item' />
+        <use id='lights-pool[4]' href='#list-item' />
+        <use id='lights-pool[5]' href='#list-item' />
+        <use id='lights-pool[6]' href='#list-item' />
+        <use id='lights-pool[7]' href='#list-item' />
+        <use id='lights-pool[8]' href='#list-item' />
+        <use id='lights-pool[9]' href='#list-item' />
+        <use id='lights-pool[10]' href='#list-item' />
+        <use id='lights-pool[11]' href='#list-item' />
+        <use id='lights-pool[12]' href='#list-item' />
+        <use id='lights-pool[13]' href='#list-item' />
       </use>
       
       <use id='separate-pool' href='#tile-list-pool'>
