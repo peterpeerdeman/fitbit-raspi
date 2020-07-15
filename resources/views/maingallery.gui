@@ -66,6 +66,23 @@
       </use>
     </use>
 
+    <use id="serverPanoramaItem" href="#panoramaview-item">
+      <use id="serverTileList" y="40" height="80%" href="#tile-list">
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to="🏢 Cluster" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to="🏢 Scaling" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to="🖥  Servers" />
+        </use>
+      </use>
+      <use href="#view-header" height="10%" fill="#A39A92">
+        <set href="#text" attributeName="text-buffer" to="Servers" />
+      </use>
+    </use>
+
     <use id="workPanoramaItem" href="#panoramaview-item">
       <use id="workTileList" y="40" height="80%" href="#tile-list">
         <use href="#my-tile-item" class="tile-list-item">
@@ -93,6 +110,7 @@
 
     <!-- Have enough pagination dots for your slides (extras are hidden) -->
     <use id="pagination-dots" href="#pagination-widget" y="10">
+      <use href="#pagination-dot" />
       <use href="#pagination-dot" />
       <use href="#pagination-dot" />
       <use href="#pagination-dot" />

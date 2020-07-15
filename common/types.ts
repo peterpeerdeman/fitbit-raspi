@@ -31,6 +31,9 @@ declare namespace Raspi {
         },
         car: {
             charge: DefaultCard
+        },
+        cluster: {
+            portTable: Array<DefaultCard>
         }
     }
 }

@@ -24,7 +24,10 @@ export class App {
                 title: '',
                 subtitle: ''
             }
-        }
+        },
+        cluster: {
+            portTable: []
+        },
     };
 
     constructor(broker: MessageBroker) {

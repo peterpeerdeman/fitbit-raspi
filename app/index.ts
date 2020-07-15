@@ -11,11 +11,12 @@ const broker = new MessageBroker('[FitBit]');
  */
 const views = new Views(
   [
-    ["maingallery", () => import("./views/maingallery")],
-    ["lights", () => import("./views/lights")],
-    ["thermostat", () => import("./views/thermostat")],
-    ["solar", () => import("./views/solar")],
     ["car", () => import("./views/car")],
+    ["cluster", () => import("./views/cluster")],
+    ["lights", () => import("./views/lights")],
+    ["maingallery", () => import("./views/maingallery")],
+    ["solar", () => import("./views/solar")],
+    ["thermostat", () => import("./views/thermostat")],
   ],
   "./resources/views/",
   broker
