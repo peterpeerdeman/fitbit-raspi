@@ -46,10 +46,7 @@ function onMount() {
             views.navigate('cluster');
             break;
           case 1:
-            views.navigate('scaling');
-            break;
-          case 2:
-            views.navigate('servers');
+            views.navigate('clustercontrol');
             break;
           default:
             break;

@@ -3,7 +3,7 @@
     <use id="spinner" href="#spinner" />
   </svg>
 
-  <symbol id='list-item' href='#tile-list-item' height='120' display='none'>
+  <symbol id='list-item' href='#tile-list-item' height='100' display='none'>
     <animate attributeName="height" begin="enable"
         from="400" to="200" dur="2" final="restore" />
     <!-- We put this in a transform so that way the elements inside

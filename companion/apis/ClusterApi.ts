@@ -14,4 +14,18 @@ export class ClusterApi {
         });
         return result;
     }
+
+    public async setClusterScale(count: Number) {
+        let result = await this.RaspAPI.requestQL({
+            query: `mutation($instances:Int!) {
+                cluster_scale(instances: $instances) {
+                  name
+                }
+              }`,
+            variables: {
+                "instances":count
+            }
+        });
+        return result;
+    }
 }

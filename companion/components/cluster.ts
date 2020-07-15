@@ -31,6 +31,12 @@ export class Cluster {
             this.app.updateUi();
         });
 
+        this.app.broker.registerHandler(Commands.CLUSTERCONTROL_SET, async (count) => {
+            console.log('companion command CLUSTERCONTROL_SET received');
+            const results = await this.api.setClusterScale(count);
+            console.log(results);
+        });
+
         console.log(`[Companion] Initialized cluster component`);
     }
 }
