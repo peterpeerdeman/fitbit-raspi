@@ -1,0 +1,25 @@
+<svg>
+  <svg viewport-fill="black">
+    <use id="spinner" href="#spinner" />
+  </svg>
+
+    <svg id="clusterbuttons">
+      <svg y="5"  height="70">
+        <use id="cluster0" href="#square-button" fill="fb-red">
+        <set href="#text" attributeName="text-buffer" to="0" />
+        </use>
+      </svg>
+      <svg y="$" height="70" >
+        <use id="cluster1" href="#square-button" fill="fb-green" width="33%">
+        <set href="#text" attributeName="text-buffer" to="1" />
+        </use>
+        <use id="cluster2" href="#square-button" x="33%" width="33%" fill="fb-green">
+        <set href="#text" attributeName="text-buffer" to="2" />
+        </use>
+        <use id="cluster3" href="#square-button" fill="fb-green" x="66%" width="33%" >
+        <set href="#text" attributeName="text-buffer" to="3" />
+        </use>
+      </svg>
+    </svg>
+
+  </svg>

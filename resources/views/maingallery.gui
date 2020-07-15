@@ -72,10 +72,7 @@
           <set href="text" attributeName="text-buffer" to="🏢 Cluster" />
         </use>
         <use href="#my-tile-item" class="tile-list-item">
-          <set href="text" attributeName="text-buffer" to="🏢 Scaling" />
-        </use>
-        <use href="#my-tile-item" class="tile-list-item">
-          <set href="text" attributeName="text-buffer" to="🖥  Servers" />
+          <set href="text" attributeName="text-buffer" to="🎚 Control" />
         </use>
       </use>
       <use href="#view-header" height="10%" fill="#A39A92">

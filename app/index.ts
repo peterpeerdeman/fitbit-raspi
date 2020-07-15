@@ -13,6 +13,7 @@ const views = new Views(
   [
     ["car", () => import("./views/car")],
     ["cluster", () => import("./views/cluster")],
+    ["clustercontrol", () => import("./views/clustercontrol")],
     ["lights", () => import("./views/lights")],
     ["maingallery", () => import("./views/maingallery")],
     ["solar", () => import("./views/solar")],
