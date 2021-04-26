@@ -7,6 +7,7 @@ import { Thermostat } from "./components/thermostat";
 import { Solar } from "./components/solar";
 import { Car } from "./components/car";
 import { Cluster } from "./components/cluster";
+import { Destiny } from "./components/destiny";
 
 const broker = new MessageBroker('[Companion]');
 const app = new App(broker);
@@ -16,6 +17,7 @@ const thermostat = new Thermostat(app);
 const solar = new Solar(app);
 const car = new Car(app);
 const cluster = new Cluster(app);
+const destiny = new Destiny(app);
 
 // A user changes settings
 settingsStorage.onchange = async (evt) => {
@@ -33,6 +35,7 @@ thermostat.initialize();
 solar.initialize();
 car.initialize();
 cluster.initialize();
+destiny.initialize();
 
 //update ui if necessary
 // app.updateUi();

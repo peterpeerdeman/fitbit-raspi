@@ -26,6 +26,9 @@ function onMount() {
             views.navigate('solar');
             break;
           case 3:
+            views.navigate('destinyonline');
+            break;
+          case 4:
             views.navigate('music');
             break;
           default:

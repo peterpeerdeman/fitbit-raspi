@@ -12,6 +12,7 @@ const broker = new MessageBroker('[FitBit]');
 const views = new Views(
   [
     ["car", () => import("./views/car")],
+    ["destinyonline", () => import("./views/destinyonline")],
     ["cluster", () => import("./views/cluster")],
     ["clustercontrol", () => import("./views/clustercontrol")],
     ["lights", () => import("./views/lights")],

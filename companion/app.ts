@@ -28,6 +28,9 @@ export class App {
         cluster: {
             portTable: []
         },
+        destiny: {
+            clanmemberPresence: []
+        }
     };
 
     constructor(broker: MessageBroker) {
