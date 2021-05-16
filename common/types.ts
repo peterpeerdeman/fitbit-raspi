@@ -34,6 +34,9 @@ declare namespace Raspi {
         },
         cluster: {
             portTable: Array<DefaultCard>
+        },
+        destiny: {
+            clanmemberPresence: Array<DefaultCard>
         }
     }
 }

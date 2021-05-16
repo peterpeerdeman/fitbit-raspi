@@ -47,6 +47,9 @@
           <set href="text" attributeName="text-buffer" to=" ☀️ Solar" />
         </use>
         <use href="#my-tile-item" class="tile-list-item">
+          <set href="text" attributeName="text-buffer" to=" 🎮 Destiny" />
+        </use>
+        <use href="#my-tile-item" class="tile-list-item">
           <set href="text" attributeName="text-buffer" to=" 🎵 Music" />
         </use>
       </use>
