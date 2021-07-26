@@ -1,4 +1,4 @@
-import { settingsStorage } from "settings";
+import { settingsStorage } from 'settings';
 
 export class RaspAPI {
     private authHeader: string;
@@ -13,7 +13,7 @@ export class RaspAPI {
             const settings = this.getSettings();
             this.authHeader = settings.authHeader;
             this.apiUrl = settings.apiUrl;
-        }
+        };
     }
 
     private getSettings() {
@@ -24,12 +24,12 @@ export class RaspAPI {
             return {
                 apiUrl: JSON.parse(_apiUrl).name,
                 authHeader: JSON.parse(_authHeader).name,
-            }
+            };
         } else {
             return {
                 apiUrl: '',
                 authHeader: '',
-            }
+            };
         }
     }
 
@@ -42,10 +42,10 @@ export class RaspAPI {
                 method,
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': this.authHeader,
-                    'Accept': 'application/json'
+                    Authorization: this.authHeader,
+                    Accept: 'application/json',
                 },
-                body
+                body,
             };
 
             if (method !== 'GET' && method !== 'HEAD') {
@@ -56,12 +56,16 @@ export class RaspAPI {
             let text;
             try {
                 text = await response.text();
-            } catch(error) {
-                console.log(`Empty API response: ${method} ${endpoint} ${response.status} ${error}`);
+            } catch (error) {
+                console.log(
+                    `Empty API response: ${method} ${endpoint} ${response.status} ${error}`
+                );
                 text = null;
             }
             let data = text ? JSON.parse(text) : null;
-            console.log(`Response from Spotify API: ${text ? text.substring(1, 150) : null}`) 
+            console.log(
+                `Response from RaspAPI: ${text ? text.substring(1, 150) : null}`
+            );
             return data;
         } catch (error) {
             console.log(`API request error: ${method} ${endpoint} ${error}`);
@@ -77,10 +81,10 @@ export class RaspAPI {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': this.authHeader,
-                    'Accept': 'application/json'
+                    Authorization: this.authHeader,
+                    Accept: 'application/json',
                 },
-                body
+                body,
             };
 
             params.body = body ? JSON.stringify(body) : '';
@@ -89,8 +93,10 @@ export class RaspAPI {
             let text;
             try {
                 text = await response.text();
-            } catch(error) {
-                console.log(`Empty API response: ${fullEndpoint} ${body} ${response.status} ${error}`);
+            } catch (error) {
+                console.log(
+                    `Empty API response: ${fullEndpoint} ${body} ${response.status} ${error}`
+                );
                 text = null;
             }
             let data = text ? JSON.parse(text) : null;

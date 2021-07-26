@@ -1,0 +1,27 @@
+<svg>
+  <!-- TOP LEFT -->
+  <!--
+<use id="btn-tl" href="#combo-button-upper-left" fill="fb-cyan">
+    <set href="combo-button-icon" attributeName="href" to="cog.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="cog_press.png"/>
+  </use>
+-->
+  <!-- TOP RIGHT -->
+  <use id="btn-stop" href="#combo-button-upper-right" fill="fb-red">
+    <set href="combo-button-icon" attributeName="href" to="../images/btn_combo_x_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="../images/btn_combo_x_press_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <!-- BOTTOM RIGHT -->
+  <use id="btn-play" href="#combo-button-lower-right" fill="fb-green">
+    <set href="combo-button-icon" attributeName="href" to="../images/btn_combo_play_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="../images/btn_combo_play_press_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+  <!-- BOTTOM LEFT -->
+  <use id="btn-pause" href="#combo-button-lower-left" fill="fb-green">
+    <set href="combo-button-icon" attributeName="href" to="../images/btn_combo_pause_p.png"/>
+    <set href="combo-button-icon-press" attributeName="href" to="../images/btn_combo_pause_press_p.png"/>
+    <set href="combo-button-stroke" attributeName="display" to="inline"/>
+  </use>
+</svg>
