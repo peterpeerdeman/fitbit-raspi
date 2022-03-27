@@ -4,9 +4,13 @@ import * as Commands from '../../common/commands';
 
 let views: Views;
 
-function onMount() {
+function onMount(state: Raspi.State) {
+    const playButton: Element = document.getElementById('btn-play') as Element;
+    playButton.onactivate = function (evt) {
+        views.broker.sendCommand(Commands.MUSIC_MUSICCONTROL, 'PLAY');
+    };
+
     const stopButton: Element = document.getElementById('btn-stop') as Element;
-    console.log(stopButton);
     stopButton.onactivate = function (evt) {
         views.broker.sendCommand(Commands.MUSIC_MUSICCONTROL, 'STOP');
     };
@@ -18,10 +22,19 @@ function onMount() {
         views.broker.sendCommand(Commands.MUSIC_MUSICCONTROL, 'PAUSE');
     };
 
-    const playButton: Element = document.getElementById('btn-play') as Element;
-    playButton.onactivate = function (evt) {
-        views.broker.sendCommand(Commands.MUSIC_MUSICCONTROL, 'PLAY');
+    const nextButton: Element = document.getElementById('btn-next') as Element;
+    nextButton.onactivate = function (evt) {
+        views.broker.sendCommand(Commands.MUSIC_MUSICCONTROL, 'NEXT');
     };
+
+    const mixedText: Element = document.getElementById('mixedtext') as Element;
+
+    const headerLabel: Element = mixedText.getElementById('header') as Element;
+    const copyLabel: Element = mixedText.getElementById('copy') as Element;
+
+    // Set the text attribute values
+    headerLabel.text = state.music.currentsong.title;
+    copyLabel.text = state.music.currentsong.subtitle;
 }
 
 function onBackButton(evt) {
@@ -34,11 +47,14 @@ function onBackButton(evt) {
 export function init(_views: Views) {
     views = _views;
     console.log('music init()');
-    onMount();
-    // views.broker.registerHandler(Commands.UPDATE_UI, (state: Raspi.State) => {
-    //     const spinner: Element = document.getElementById('spinner') as Element;
-    //     spinner.state = 'disabled';
-    //     onMount(state);
-    // });
-    // views.broker.sendCommand(Commands.CLUSTER_UPDATE_PORTTABLE);
+
+    const spinner: Element = document.getElementById('spinner') as Element;
+    spinner.state = 'enabled';
+
+    views.broker.registerHandler(Commands.UPDATE_UI, (state: Raspi.State) => {
+        const spinner: Element = document.getElementById('spinner') as Element;
+        spinner.state = 'disabled';
+        onMount(state);
+    });
+    views.broker.sendCommand(Commands.MUSIC_UPDATE_CURRENTSONG);
 }

@@ -2,41 +2,44 @@
 
 declare namespace Raspi {
     interface LightCard {
-        title: string,
-        subtitle: string,
-        _id: number
+        title: string;
+        subtitle: string;
+        _id: number;
     }
 
     interface ZoneCard {
-        title: string,
-        subtitle: string,
-        zoneId: number
+        title: string;
+        subtitle: string;
+        zoneId: number;
     }
 
     interface DefaultCard {
-        title: string,
-        subtitle: string
+        title: string;
+        subtitle: string;
     }
 
     interface State {
-        page: string,
+        page: string;
         lights: {
-            groupsData: Array<LightCard>
-        },
+            groupsData: Array<LightCard>;
+        };
         thermostat: {
-            zonesData: Array<ZoneCard>
-        },
+            zonesData: Array<ZoneCard>;
+        };
         solar: {
-            outputs: Array<DefaultCard>
-        },
+            outputs: Array<DefaultCard>;
+        };
         car: {
-            charge: DefaultCard
-        },
+            charge: DefaultCard;
+        };
         cluster: {
-            portTable: Array<DefaultCard>
-        },
+            portTable: Array<DefaultCard>;
+        };
         destiny: {
-            clanmemberPresence: Array<DefaultCard>
-        }
+            clanmemberPresence: Array<DefaultCard>;
+        };
+        music: {
+            currentsong: DefaultCard;
+        };
     }
 }

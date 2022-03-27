@@ -1,4 +1,4 @@
-import * as Commands from "../common/commands";
+import * as Commands from '../common/commands';
 import { MessageBroker } from '../common/message-broker';
 
 export class App {
@@ -11,26 +11,32 @@ export class App {
     cleanState = {
         page: 'loading',
         lights: {
-            groupsData: []
+            groupsData: [],
         },
         thermostat: {
-            zonesData: []
+            zonesData: [],
         },
         solar: {
-            outputs: []
+            outputs: [],
         },
         car: {
             charge: {
                 title: '',
-                subtitle: ''
-            }
+                subtitle: '',
+            },
+        },
+        music: {
+            currentsong: {
+                title: '',
+                subtitle: '',
+            },
         },
         cluster: {
-            portTable: []
+            portTable: [],
         },
         destiny: {
-            clanmemberPresence: []
-        }
+            clanmemberPresence: [],
+        },
     };
 
     constructor(broker: MessageBroker) {
